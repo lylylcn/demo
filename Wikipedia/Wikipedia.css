@@ -1,0 +1,124 @@
+*{
+    margin:0px;
+    padding:0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+a{
+    text-decoration: none;
+}
+body{
+    width:100%;
+    height:625px;
+    background: #092B40;
+    position: relative;
+    color:#fff;
+}
+.wrapper{
+    width: 300px;
+    height:250px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left:-150px;
+    margin-top:-125px;
+    text-align: center;
+}
+.wrapper a{
+    color:#fff;
+    font-size:18px;
+}
+.wrapper .search{
+    margin-top:20px;
+    position: relative;
+}
+.wrapper .search .input{
+    width:30px;
+    height:30px;
+    padding-left:15px;
+    padding-right:30px;
+    border-radius:15px;
+    border:3px solid #D96F32;
+    margin: 0 auto;
+    margin-bottom: 20px;
+} 
+.wrapper .search input{
+    width:30px; /* 194px*/
+    height:30px;
+    color:#fff;
+    font-size:14px;
+    outline:none;
+    margin-left:-10px;
+    border:none;
+    background-color: transparent;
+}
+
+
+.wrapper .search .cha{
+    position: absolute;
+    left:236px;
+    top:3px;
+}
+.wrapper .search .cha .left,
+.wrapper .search .cha .right{
+    display: inline-block;
+    width:0px;  /*  20px  */
+    border-top:2px solid #D96F32;
+    cursor: pointer;
+}
+.wrapper .search .cha .left{
+    transform: rotate(45deg);
+}
+.wrapper .search .cha .right{
+    transform: rotate(135deg);
+    margin-left:-25.5px; 
+}
+
+.wrapper .search .mag{
+    position: relative;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.wrapper .search .mag .circle{
+    width:30px;
+    height:30px;
+    border:3px solid #D96F32;
+    border-radius: 50%;
+    left:50%;
+    margin:0 auto;
+}
+
+.wrapper .search .mag .left{
+    display: inline-block;
+    width:15px;
+    border-top:3px solid #D96F32;
+    transform: rotate(45deg);
+    position: absolute;
+    left:158px;
+    top:35px;
+}
+
+.hidden{
+    display: none;
+}
+
+ul li{
+    list-style: none;
+    width:800px;
+    height:100px;
+    padding:15px;
+    margin:20px auto;
+    background: #ddd;
+    font-weight: 800;
+    cursor: pointer;
+    color:#333;
+}
+
+.ulstyle{
+    position: absolute;
+    left:50%;
+    top:25%;
+    transform: translateX(-50%);
+}
+
+
