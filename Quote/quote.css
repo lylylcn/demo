@@ -1,0 +1,63 @@
+*{
+    padding:0;
+    margin:0;
+    font-family: 'Courier New', Courier, monospace;
+}
+a{
+    text-decoration: none;
+    color:pink;
+}
+body{
+    width:100%;
+    height:100%;
+    text-align: center;
+    background: pink;
+    color:pink;
+}
+.wrapper{
+    background-color: #fff;
+    width:450px;
+    padding:40px 50px;
+    margin: 10px auto;
+    margin-top:100px;
+}
+
+.saying{
+    font-size:28px;
+    margin-bottom: 20px;
+}
+.author{
+    font-size:24px;
+    text-align: right;
+    margin-bottom:30px;
+}
+
+
+.share{
+    font-size:28px;
+    height:50px;
+    display: flex;
+    align-items: center;
+}
+
+.share i{
+    cursor: pointer;
+    line-height: 50px;
+    margin-left:20px;
+}
+button{
+    display: inline-block;
+    outline: none;
+    border:none;
+    width:100px;
+    height:30px;
+    background-color:pink;
+    cursor: pointer;
+    line-height: 30px;
+    margin-left:250px;
+    color:#fff;
+}
+.made{
+    margin:auto;
+    color:#fff;
+}
