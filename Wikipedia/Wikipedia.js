@@ -56,6 +56,7 @@ function chacilck() {
 $(window).on("keydown", function (event) { 
     if (event.keyCode === 13) {
         var value = $("#input").val(); // 获取搜索框关键字
+        // console.log(value);
         if (value === "") {  //如果为空则变回放大镜
             chacilck();
         } else {
