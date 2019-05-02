@@ -1,0 +1,100 @@
+*{
+    padding:0;
+    margin:0;
+    font-size:16px;
+    text-decoration: none;
+    list-style: none;
+    font-family: 微软雅黑;
+    color:#444;
+}
+body{
+    width:100%;
+    min-width: 500px;
+    background-color:rgb(127, 170, 235);
+}
+/* 两个标题的样式 */
+.title,
+.top{
+    font-size:24px;
+    font-weight: 600;
+    color:rgb(145, 54, 154); 
+}
+
+/* 刷新页面的按钮位置 */
+.position{
+    margin-top:54px;
+    margin-left:-20px;
+    cursor: pointer;
+}
+/* 最上层整体的样式 */
+.main{
+    height:400px;
+    margin-bottom: 5px;
+}
+/* 今日天气的左侧向左浮动 */
+.main .weatherimg{
+    width: 30%;
+    height:400px;
+    float: left;
+    margin-left:20%;
+    text-align: center;
+}
+.main .title{
+    display: inline-block;
+    margin:50px 0 10px;
+}
+
+.main img{
+    width:100px;
+    display: inline-block;
+    margin:0 auto;
+    vertical-align: middle;
+    margin-bottom: 20px;
+}
+
+.main p{
+    margin-bottom: 20px;
+}
+/* 今日天气右侧的样式向右浮动 */
+.guide{
+    width:45%;
+    height:400px;
+    float: right;
+    margin-left:-100px;
+}
+
+ul{
+    margin-top:100px;
+}
+ul li{
+    margin:20px 0;
+}
+/* 未来六天整体的样式 */
+.future{
+    height:230px;
+    text-align: center;
+}
+
+.future ul{
+    margin: 0px;
+}
+.future ul li{
+    float: left;
+    margin-left:100px;
+}
+.future ul li img{
+    width:100px;
+    height:100px;
+}
+/* 所有样式 */
+.showstyle{
+    animation: show linear 0.3s;
+}
+
+@keyframes show{
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+    }
+}
