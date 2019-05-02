@@ -1,0 +1,111 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+html,
+body,
+.wrapper,
+.slider-list{
+    width:100%;
+    height:100%;
+    color: #fff;
+
+}
+.wrapper{
+    position: relative;
+}
+/* 每页ppt样式 */
+.slider-list .slider{
+    width:100%;
+    height:100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding:200px;
+    box-sizing: border-box;
+}
+.slider-list .slider:nth-child(1){
+    background-image: url('images/img1.jpg');
+}
+.slider-list .slider:nth-of-type(2){
+    background-image: url('images/img2.jpg');
+    display: none;
+}
+.slider-list .slider:nth-of-type(3){
+    background-image: url('images/img3.jpg');
+    display: none;
+}
+.slider-list .slider .tilte{
+    float:left;
+    width:40%;
+    font-size:16px;
+}
+.slider-list .slider:nth-of-type(1) .title{
+    font-size: 20px;
+}
+.slider-list .slider .image{
+    float: right;
+    width:0%;
+}
+.slider-list .slider:nth-of-type(1) .image{
+    width:35%;
+}
+
+.slider-list .slider img{
+    width: 100%;
+    height: 100%;
+}
+
+/* 按钮 */
+.slider-btn{
+    position: absolute;
+    top:50%;
+    margin-top:-15px;
+    width:100%;
+    height:30px;
+}
+.slider-btn .left-btn,
+.slider-btn .right-btn{
+    position: absolute;
+    display: inline-block;
+    width:30px;
+    height:30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.slider-btn .left-btn{
+    left:100px;
+    background-image:url('images/left-btn.png');
+}
+.slider-btn .right-btn{
+    right:100px;
+    background-image:url('images/right-btn.png');
+}
+
+/* 小圆点 */
+.slider-order{
+    position: absolute;
+    bottom: 100px;
+    width:100%;
+    height:20px;
+    text-align: center;
+}
+.slider-order ul{
+    display: inline-block;
+}
+.slider-order ul li{
+    display: inline-block;
+    width:15px;
+    height:15px;
+    border-radius: 50%;
+    margin-right:20px;
+    background: #888;
+    cursor: pointer;
+}
+.slider-order ul li:nth-of-type(3){
+    margin: 0;
+}
+.slider-order ul li.active{
+    background: #fff;
+}
