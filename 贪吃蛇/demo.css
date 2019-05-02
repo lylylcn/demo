@@ -1,0 +1,164 @@
+*{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+body{
+    background-color: #568fd4;
+    overflow: hidden;
+}
+.wrapper{
+    width: 100%;
+    height:630px;
+    margin:auto auto;
+    border: 1px solid #000;
+    background-image:url(image/map3.jpg); 
+    background-repeat: repeat;
+}
+/* 首部 */
+.wrapper .top{
+    width: 100%;
+    height: 50px;
+    display: inline-block;
+    border:1px solid #000;
+}
+/* 暂停按钮 */
+.wrapper .top .btn2{
+    width:50px;
+    height:50px;
+    background-image: url(image/暂停.png);
+    background-size: 100% 100%;
+    margin-left:150px ;
+    cursor: pointer;
+}
+
+/* 开始按钮 */
+.wrapper .top .btn1{
+    width:50px;
+    height:50px;
+    background-image: url(image/开始.png);
+    background-size: 100% 100%;
+    margin-left:150px;
+    cursor: pointer;
+}
+
+/* 尾部 */
+.wrapper .bottom{
+    width: 100%;
+    height:575px;
+}
+/* 开始按钮 */
+.wrapper .bottom .startgame{
+    width: 160px;
+    height: 60px;
+    border-radius:20px; 
+    background-image: url(image/play3.jpg);
+    background-size: 100% 100%;
+    position: absolute;
+    left:50%;
+    margin-left:-80px;
+    top:85%;
+    cursor: pointer;
+    /* animation: play 3s linear infinite; */
+    perspective: 800;
+    transform: rotate3d(10deg);
+}
+.startgameDisapper{
+    display: none;
+}
+@keyframes play{
+    0%{
+        margin-left:-78px; 
+    }
+    50%{
+        margin-left:-82px; 
+    }
+    100%{
+        margin-left:-78px; 
+    }
+}
+/* 游戏结束 */
+.wrapper .bottom .gameover{
+    display: none;
+    width: 300px;
+    height: 200px;
+    border-radius:20px; 
+    background-image: url(image/gameover.jpg);
+    background-size: 100% 100%;
+    font-size:20px;
+    position: absolute;
+    left:50%;
+    margin-left:-150px;
+    top:50%;
+    margin-top:-100px;
+    cursor: pointer;
+    /* animation: play1 3s linear infinite; */
+    perspective: 800;
+    transform: rotate3d(10deg);
+}
+.gameover span{
+    display: inline-block;
+    width: 30px ;
+    height:30px;
+    font-size:18px; 
+    color:yellow;
+    font-weight: bolder;
+    text-align: center;
+    line-height: 30px;
+    position: absolute;
+    left:50%;
+    margin-left:-15px;
+    top:110%;
+    border-radius:50%;
+    border: 2px solid yellow;
+}
+.wrapper .bottom .gameovershow{
+    display: inline-block;
+}
+@keyframes play1{
+    0%{
+        margin-left:-148px; 
+    }
+    50%{
+        margin-left:-152px; 
+    }
+    100%{
+        margin-left:-148px; 
+    }
+}
+
+.wrapper .main{
+    width: 70%;
+    height:540px;
+    border:2px dashed red;
+    margin: auto auto;
+    position: relative;
+}
+.food{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background-image: url(image/苹果.png);
+    background-size: 100% 100%;
+}
+.head{
+    background-image: url(image/球.png);
+    background-size: 100% 100%;
+    width: 20px;
+    height:20px;
+    position: absolute;
+}
+.body{
+    width: 20px;
+    height:20px;
+    background-image: url(image/球.png);
+    background-size: 100% 100%;
+    position: absolute;
+}
+
+
+
+
+
+
+
