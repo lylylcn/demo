@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>person website</title>
+    <link rel="stylesheet" href="./css/person website.css">
+    <link href="https://fonts.gdgdocs.org/css?family=Lobster" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <script src="js/jquery-1.8.3-min.js"></script>
+    <script src="js/tools.js"></script>
+</head>
+
+<body>
+    <div class="head">
+        <div class="content">
+            <img src="image/head1.gif" alt="myself image">
+            <div class="navigator">
+                <a href="#about" class="back">ABOUT</a>
+                <a href="#portgolio">PORTFOLIO</a>
+                <a href="#contact">CONTACT</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="wrapper">
+        <div id="about">
+            <div class="introduce">
+                <h2 class="text-center">I am Gloria</h2>
+                <p class="text-center">Storms make trees take deeper roots.</p>
+                <p class="text-center">我是杜璐瑜</p>
+                <p class="text-center">一名前端工程师</p>
+            </div>
+        </div>
+        <div id="portgolio">
+            <div>
+                <h1 class="text-center title">PORTFOLIO</h1>
+            </div>
+            <div class="opus">
+                <ul class="opus1">
+                    <li><a href="../轮播图/轮播图.html" target="_blank"><img src="image/opus1.jpg" alt="" class="gray"></a></li>
+                    <li><a href="../轮播图2/轮播图.html" target="_blank"><img src="image/opus.jpg" alt="" class="gray"></a></li>
+                    <li><a href="../贪吃蛇/demo.html" target="_blank"><img src="image/opus2.jpg" alt="" class="gray"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="contact">
+            <div>
+                <h1 class="text-center title">CONTACT ME</h1>
+            </div>
+            <div class="information">
+                <form action="a.com" name="cons" method="GET" >
+                    <div class="name">
+                        <label for="name"><span class="choose">Name</span>
+                            <input type="text" value="Name" maxlength="30" name="Name" class="inputstyle">
+                            <span class="error">Name不能为空</span>
+                        </label>
+                    </div>
+                    <div class="email">
+                        <label for="Email"><span class="choose">Email Address</span>
+                            <input type="text" value="Email Address" maxlength="30" name="Email" class="inputstyle">
+                            <span class="error">Email格式不正确</span>
+                        </label>
+                    </div>
+                    <div class="phone">
+                        <label for="phone"><span class="choose">Phone Number</span>
+                            <input type="text" value="Phone Number" maxlength="11" name="Phone" class="inputstyle">
+                            <span class="error">Phone格式不正确</span>
+                        </label>
+                    </div>
+                    <div class="message">
+                        <label for="message"><span class="choose">Message</span>
+                            <textarea name="Message" cols="30" rows="10" minlength="10" class="inputstyle meminput">Message</textarea>
+                            <span class="error">Message长度至少为10</span>
+                        </label>
+                    </div>
+                    <div>
+                        <label for="btn">
+                            <input type="submit" class="btn" value="send">
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="bottom text-center">
+        <div class="app">
+            <ul>
+                <li><a href="#">
+                    <i class="fa fa-github"></i>
+                </a></li>
+                <li><a href="#">
+                    <i class="fa fa-weibo"></i>
+                </a></li>
+                <li><a href="#">
+                    <i class="fa fa-weixin"></i>
+                </a></li>
+                <li><a href="#">
+                    <i class="fa fa-qq"></i>
+                </a></li>
+            </ul>
+            <span class="aa"></span>
+        </div>
+    </div>
+<script src="js/person website.js"></script>
+</body>
+
+</html>
