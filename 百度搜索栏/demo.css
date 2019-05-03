@@ -1,0 +1,29 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+}
+.wrapper{
+    margin:100px;
+}
+input{
+    width:400px;
+    height:34px;
+}
+ul{
+    display: none;
+    width:400px;
+    border:1px solid #ccc;
+}
+a:hover{
+    background: #ddd;
+}
+a{
+    display: inline-block;
+    width:400px;
+    font-size: 14px;
+    height:20px;
+    line-height: 20px;
+    color:#333;
+}
