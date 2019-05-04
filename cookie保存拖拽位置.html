@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script src="./jquery.min.js"></script>
+    <script>
+        var managerCookie = {
+            setCookie: function (name, value, time) {
+                document.cookie = name + '=' + value + ';max-age' + time;
+                return this;
+            },
+            removeCookie: function (name) {
+                this.setCookie(name, '', -1);
+            },
+            getCookie: function (name, callback) {
+                var allCookieArr = document.cookie.split(';');
+                for (var i = 0; i < allCookieArr.length; i++) {
+                    var itemCookieArr = allCookieArr[i].trim().split('=');
+                    if (itemCookieArr[0] == name) {
+                        callback(itemCookieArr[1]);
+                        return this;
+                    }
+                }
+                callback(undefined);
+                return this;
+            }
+        }
+        var disX, disY;
+        var X = 0;
+        var Y = 0;
+       
+        function getLeft(value) {
+            X = value || 0;
+        }
+        function getTop(value) {
+            Y = value || 0;
+        }
+        managerCookie.getCookie('positionX', getLeft);
+        managerCookie.getCookie('positionY', getTop);
+        var W = $(window).width(),
+            H = $(window).height();
+        $('div').css({
+            'left': X + 'px',
+            'top': Y + 'px'
+        });
+        $('div').on('mousedown', function (e) {
+            var event = e || window.event;
+            disX = event.clientX - this.offsetLeft;
+            disY = event.clientY - this.offsetTop;
+            var that = this;
+            $(document).on('mousemove', mouseMove);
+            $(this).on('mouseup', mouseUp);
+        });
+
+        function mouseMove(e) {
+            var event = e || window.event;
+            X = event.clientX - disX;
+            Y = event.clientY - disY; 
+            X = X <= 0 ? 0 : X;
+            X = (X + 80) > W ? W - 80 : X;
+            Y = Y <= 0 ? 0 : Y;
+            Y = (Y + 80) > H ? H - 80 : Y;
+
+            $('div').css({
+                'left': X + 'px',
+                'top': Y + 'px'
+            });
+        }
+        function mouseUp(e) {
+            $('div').off('mouseup', mouseUp);
+            $(document).off('mousemove', mouseMove);
+            managerCookie.setCookie('positionX', X, 10000000)
+                .setCookie('positionY', Y, 10000000);
+        }
+    </script>
+</body>
+
+</html>
