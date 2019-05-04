@@ -210,21 +210,21 @@ function getQueryStringArgs() {
     return args;
 }
 var managerCookie = {
-    setCookie: function(name, value, time) {
+    setCookie: function (name, value, time) {
         document.cookie = name + '=' + value + ';max-age' + time;
         return this;
     },
-    removeCookie: function(name) {
+    removeCookie: function (name) {
         this.setCookie(name, '', -1);
     },
-    getCookie: function(name,callback) {
-        var allCookieArr = document.cookie;
-        for(var i=0; i<allCookieArr.length;i++){
-            var itemCookieArr = allCookieArr[i].split('=');
-            if(itemCookieArr[0] = name) {
+    getCookie: function (name, callback) {
+        var allCookieArr = document.cookie.split(';');
+        for (var i = 0; i < allCookieArr.length; i++) {
+            var itemCookieArr = allCookieArr[i].trim().split('=');
+            if (itemCookieArr[0] == name) {
                 callback(itemCookieArr[1]);
                 return this;
-            } 
+            }
         }
         callback(undefined);
         return this;
