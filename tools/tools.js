@@ -230,3 +230,57 @@ var managerCookie = {
         return this;
     }
 }
+function ajax(method, url, callback, data, flag) {
+    var xhr = null;
+    if (window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();
+    } else {
+        xhr = new ActiveXObject('Microsoft.XMLHttp')
+    }
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                callback(xhr.responseText);
+            } else {
+                console.log('error' + xhr.status);
+            }
+        }
+    }
+    method = method.toUpperCase();
+    if (method == 'GET') {
+        var date = new Date(),
+            timer = date.getTime();
+        xhr.open(method, url + '?' + data + '&timer=' + timer, flag);
+        xhr.send();
+    } else if (method == 'POST') {
+        xhr.open(method, url, flag);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.send(data);
+    }
+}
+
+//函数防抖  func执行触发函数  timer 等待时间  flag true为先执行后等 false 先等后执行
+function debounce(func, time, flag) {
+    var timer = null; //this指向window
+    var debounced = function() {
+        var that = this; //指向出发事件的dom元素
+        var argu = arguments[0];
+        clearTimeout(timer);
+        if(flag){
+            if(!timer) func.call(that,argu);
+            timer = setTimeout(function() {
+                timer = null;
+            },time);
+        }else{
+            timer = setTimeout(function() {
+                func.call(that,argu);
+            },time);
+        }
+    }
+    // 取消计时器
+    debounce.cancel = function() {
+        clearTimeout(timer);
+        timer = null;
+    }
+    return debounced;
+}
