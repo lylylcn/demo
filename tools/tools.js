@@ -230,6 +230,7 @@ var managerCookie = {
         return this;
     }
 }
+
 function ajax(method, url, callback, data, flag) {
     var xhr = null;
     if (window.XMLHttpRequest) {
@@ -237,7 +238,7 @@ function ajax(method, url, callback, data, flag) {
     } else {
         xhr = new ActiveXObject('Microsoft.XMLHttp')
     }
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
                 callback(xhr.responseText);
@@ -262,25 +263,51 @@ function ajax(method, url, callback, data, flag) {
 //函数防抖  func执行触发函数  timer 等待时间  flag true为先执行后等 false 先等后执行
 function debounce(func, time, flag) {
     var timer = null; //this指向window
-    var debounced = function() {
+    var debounced = function () {
         var that = this; //指向出发事件的dom元素
         var argu = arguments[0];
         clearTimeout(timer);
-        if(flag){
-            if(!timer) func.call(that,argu);
-            timer = setTimeout(function() {
+        if (flag) {
+            if (!timer) func.call(that, argu);
+            timer = setTimeout(function () {
                 timer = null;
-            },time);
-        }else{
-            timer = setTimeout(function() {
-                func.call(that,argu);
-            },time);
+            }, time);
+        } else {
+            timer = setTimeout(function () {
+                func.call(that, argu);
+            }, time);
         }
     }
     // 取消计时器
-    debounce.cancel = function() {
+    debounce.cancel = function () {
         clearTimeout(timer);
         timer = null;
     }
     return debounced;
+}
+// 函数节流时间戳写法
+// function throttle(func, wait) {
+//     var lastTime = 0;
+//     return function() {
+//         var now = +new Date(); //获取当前时间戳
+//         if(now - lastTime > wait){
+//             func.call(this,arguments[0]);
+//             lastTime = now;
+//         }
+//     }
+// }
+
+// 函数节流计时器写法
+function throttle(func, wait) {
+    var timer = null;
+    return function () {
+        var argu = arguments[0],
+            that = this;
+        if (!timer) {
+            timer = setTimeout(function () {
+                func.call(that, argu);
+                timer = null;
+            }, wait);
+        }
+    }
 }
