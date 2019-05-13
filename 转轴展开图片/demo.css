@@ -1,0 +1,177 @@
+*{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+html, 
+body{
+    width:100%;
+    height:100%;
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:100%;
+    background: #000;
+    color:#fff;
+}
+.wrapper .content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:80%;
+    height:80%;
+}   
+.item{
+    width:16%;
+    height:100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #333;
+    transition: width 0.5s linear,height 0.5s linear 0.5s; /*关闭展开*/
+}
+.wrapper-active .item{
+    transition: width 0.5s linear 0.5s,height 0.5s linear; /*开启展开*/
+}
+.active{
+    width:100%;
+}
+/* 除了点击的其余都消失 */
+.wrapper-active .item:not(.active){
+    width:0%;
+    height:0%;
+}
+.item .inner{
+    position: relative;
+    width:100%;
+    height:100%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+/* 开始时出现的效果 */
+.item:nth-of-type(1) .inner{
+    transition: transform 0.5s linear;
+}
+.item:nth-of-type(2) .inner{
+    transition: transform 0.5s linear 0.2s;
+}
+.item:nth-of-type(3) .inner{
+    transition: transform 0.5s linear 0.4s;
+}
+.item:nth-of-type(4) .inner{
+    transition: transform 0.5s linear 0.6s;
+}
+.item:nth-of-type(5) .inner{
+    transition: transform 0.5s linear 0.8s;
+}
+.item:nth-of-type(6) .inner{
+    transition: transform 0.5s linear 1s;
+}
+.init .item .inner{
+    transform: translate3d(0,100%,0);
+} 
+.item .bg{
+    width:100%;
+    height:100%;
+    opacity: 0.7;
+    background-size: cover;
+}
+/* 展开时图片的效果 */
+.wrapper-active .item .bg{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.item:nth-of-type(1) .bg{
+    background-image: url('./images/img1.jpg');
+}
+.item:nth-of-type(2) .bg{
+    background-image: url('./images/img2.jpg');
+}
+.item:nth-of-type(3) .bg{
+    background-image: url('./images/img3.jpg');
+}
+.item:nth-of-type(4) .bg{
+    background-image: url('./images/img4.jpg');
+}
+.item:nth-of-type(5) .bg{
+    background-image: url('./images/img5.jpg');
+}
+.item:nth-of-type(6) .bg{
+    background-image: url('./images/img6.jpg');
+}
+
+.item .title{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+/* 展开时标题的效果 */
+.wrapper-active .item .title{
+    opacity: 0;
+    transition: opacity .2s linear;
+}
+/* 关闭展开时标题的效果 */
+.wrapper .title{
+    opacity: 1;
+    transition: opacity .2s linear 1s;
+}
+
+.item .title h2{
+    font-size: 14px;
+    transition: font-size 0.2s linear;
+}
+.item:hover h2{
+    font-size: 20px;
+}
+.item:hover .bg{
+    opacity: 1;
+}
+.item .dis{
+    position: absolute;
+    top:30px;
+    width:100%;
+    height:30px;
+    opacity: 0;
+    transition: opacity 0.5s linear ;
+}
+.item .header{
+    float: left;
+    margin-left:30px;
+    line-height: 30px;
+}
+.item .close{
+    position: relative;
+    float: right;
+    height:100%;
+    width:20px;
+    cursor: pointer;
+    margin-right: 30px;
+}
+.wrapper-active .item .close::before,
+.wrapper-active .item .close::after{
+    position: absolute;
+    content:"";
+    top:50%;
+    left:0;
+    margin-top:-1px;
+    width:20px;
+    height:2px;
+    background: #fff;
+}
+.wrapper-active .item .close::before{
+    transform: rotate(45deg);
+}
+.wrapper-active .item .close::after{
+    transform: rotate(-45deg);
+}
+.wrapper-active .item .dis{
+    opacity: 1;
+    transition: opacity 0.5s linear 1s;
+}
+
+
+

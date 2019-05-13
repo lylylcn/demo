@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./demo.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul class="content init">
+            <li class="item">
+                <div class="inner">
+                    <div class="bg"></div>
+                    <div class="title">
+                        <h2>image1</h2>
+                    </div>
+                    <div class="dis">
+                        <div class="header">Daenerys Targaryen</div>
+                        <div class="close"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="item">
+                <div class="inner">
+                    <div class="bg"></div>
+                    <div class="title">
+                        <h2>image2</h2>
+                    </div>
+                    <div class="dis">
+                        <div class="header">Daenerys Targaryen</div>
+                        <div class="close"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="item">
+                <div class="inner">
+                    <div class="bg"></div>
+                    <div class="title">
+                        <h2>image3</h2>
+                    </div>
+                    <div class="dis">
+                        <div class="header">Night's King</div>
+                        <div class="close"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="item">
+                <div class="inner">
+                    <div class="bg"></div>
+                    <div class="title">
+                        <h2>image4</h2>
+                    </div>
+                    <div class="dis">
+                        <div class="header">Jon Snow</div>
+                        <div class="close"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="item">
+                <div class="inner">
+                    <div class="bg"></div>
+                    <div class="title">
+                        <h2>image5</h2>
+                    </div>
+                    <div class="dis">
+                        <div class="header">Sansa Stark</div>
+                        <div class="close"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="item">
+                <div class="inner">
+                    <div class="bg"></div>
+                    <div class="title">
+                        <h2>image6</h2>
+                    </div>
+                    <div class="dis">
+                        <div class="header">Arya Stark</div>
+                        <div class="close"></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <script src="../jquery-1.8.3/jquery.min.js"></script>
+    <script>
+        var timer = setTimeout(function() {
+            $('.init').removeClass('init');
+        });
+        $('.item').on('click',function() {
+            $(this).addClass('active');
+            $('.wrapper').addClass('wrapper-active');
+
+        });
+        $('.close').on('click',function(e) {
+            e.stopPropagation();
+            $('.active').removeClass('active');
+            $('.wrapper').removeClass('wrapper-active');
+        })
+    </script>
+</body>
+
+</html>
