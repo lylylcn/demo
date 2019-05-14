@@ -1,0 +1,169 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+html,
+body{
+    width:100%;
+    height:100%;
+}
+.wrapper{
+    width:700px;
+    margin:0 auto;
+    border:1px solid #ccc;
+}
+.wrapper ul{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+}
+.wrapper ul li{
+    display: inline-block;
+    width:200px;
+    height:150px;
+    margin:10px 0 10px 10px;
+}
+.wrapper ul li .picBox{
+    position: relative;
+    transform-style:preserve-3d; 
+    perspective: 1000;
+    width:100%;
+    height:100%;
+    animation: 0.3s ease-out forwards;
+}
+.wrapper .picBox .show,
+.wrapper .picBox .hide{
+    width:100%;
+    height:100%;
+    /* opacity: 0.5; */
+}
+.wrapper .picBox img{
+    width:100%;
+    height:100%;
+}
+.wrapper .picBox .hide{
+    position: absolute;
+    left:0px;
+    top:0px;
+    width:100%;
+    height:100%;
+    background: #000;
+    color:#fff;
+    font-size: 20px;
+    text-align: center;
+    line-height: 150px;
+    transform: translate3d(0,0,-1px);
+}
+.wrapper .in-top .picBox .hide,
+.wrapper .out-top .picBox .hide{
+    transform-origin:bottom;
+    transform:translate3d(0,-100%,0) rotate3d(1,0,0,90deg);
+}
+.wrapper .in-top .picBox{
+    animation-name: in-top; 
+    transform-origin: 50% 50% -75px;
+}
+.wrapper .out-top .picBox{
+    animation-name: out-top; 
+    transform-origin: 50% 50% -75px;
+}
+@keyframes in-top{
+    0%{
+        transform: rotate3d(0,0,0,0);
+    }100%{
+        transform: rotate3d(-1,0,0,90deg);
+    }
+}
+@keyframes out-top{
+    0%{
+        transform: rotate3d(-1,0,0,90deg);
+    }100%{
+        transform: rotate3d(0,0,0,0);
+    }
+}
+.wrapper .in-bottom .picBox .hide,
+.wrapper .out-bottom .picBox .hide{
+    transform-origin:top;
+    transform:translate3d(0,100%,0) rotate3d(1,0,0,-90deg);
+}
+.wrapper .in-bottom .picBox{
+    animation-name: in-bottom; 
+    transform-origin: 50% 50% -75px;
+}
+.wrapper .out-bottom .picBox{
+    animation-name: out-bottom; 
+    transform-origin: 50% 50% -75px;
+}
+@keyframes in-bottom{
+    0%{
+        transform: rotate3d(0,0,0,0);
+    }100%{
+        transform: rotate3d(1,0,0,90deg);
+    }
+}
+@keyframes out-bottom{
+    0%{
+        transform: rotate3d(1,0,0,90deg);
+    }100%{
+        transform: rotate3d(0,0,0,0);
+    }
+}
+
+.wrapper .in-left .picBox .hide,
+.wrapper .out-left .picBox .hide{
+    transform-origin:right;
+    transform:translate3d(-100%,0,0) rotate3d(0,1,0,-90deg);
+}
+.wrapper .in-left .picBox{
+    animation-name: in-left; 
+    transform-origin: 50% 50% -100px;
+}
+.wrapper .out-left .picBox{
+    animation-name: out-left; 
+    transform-origin: 50% 50% -100px;
+}
+@keyframes in-left{
+    0%{
+        transform: rotate3d(0,0,0,0);
+    }100%{
+        transform: rotate3d(0,1,0,90deg);
+    }
+}
+@keyframes out-left{
+    0%{
+        transform: rotate3d(0,1,0,90deg);
+    }100%{
+        transform: rotate3d(0,0,0,0);
+    }
+}
+
+.wrapper .in-right .picBox .hide,
+.wrapper .out-right .picBox .hide{
+    transform-origin:left;
+    transform:translate3d(100%,0,0) rotate3d(0,1,0,90deg);
+}
+.wrapper .in-right .picBox{
+    transform-origin: 50% 50% -100px;
+    animation-name: in-right; 
+}
+.wrapper .out-right .picBox{
+    transform-origin: 50% 50% -100px;
+    animation-name: out-right; 
+}
+@keyframes in-right{
+    0%{
+        transform: rotate3d(0,0,0,0);
+    }100%{
+        transform: rotate3d(0,-1,0,90deg);
+    }
+}
+@keyframes out-right{
+    0%{
+        transform: rotate3d(0,-1,0,90deg);
+    }100%{
+        transform: rotate3d(0,0,0,0);
+    }
+}
