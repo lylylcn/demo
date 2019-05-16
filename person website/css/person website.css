@@ -6,7 +6,10 @@
     font-family: Arial, Helvetica, sans-serif;
     list-style: none;
 }
-ul li{
+body{
+    min-width:680px;
+}
+.opus1 li{
     float:left;
 }
 .gray{
@@ -18,18 +21,6 @@ ul li{
     filter: grayscale(1);
 }
 
-/* @font-face {
-    font-family: 'myfont';
-    src: url('../font/myfont.eot');
-    src:
-      url('../font/myfont.eot?#font-spider') format('embedded-opentype'),
-      url('../font/myfont.woff') format('woff'),
-      url("../font/myfont.ttf") format('truetype'),
-      url('../font/myfont.svg') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-   */
 body {
     width: 100%;
     height: 100%;
@@ -48,24 +39,32 @@ body {
 }
 
 .head .content {
+    position: relative;
     width: 80%;
     margin: 0 auto;
     /* border:1px solid pink; */
 }
-
+.head .content::after{
+    display: inline-block;
+    content: "";
+    clear: both;
+}
 .head .content img {
     display: inline-block;
     height: 60px;
     padding: 10px;
     cursor: pointer;
 }
-
+.head .content .fa-bars{
+    display: none;
+}
 .head .content .navigator {
-    display: inline-block;
     float: right;
     height: 60px;
     margin: 10px 30px;
-    /* border: 1px solid pink; */
+}
+.head .content .navigator li{
+    display: inline-block;
 }
 
 .head .content .navigator a {
@@ -83,10 +82,32 @@ body {
     color: #000;
 }
 
-.head .content .navigator .back{
+.head .content .navigator .active{
     background-color:#fff;
 }
 
+@media screen and (max-width:760px){
+    /* .head{
+        height:225px;
+    } */
+    .head .content .navigator{
+        display: none;
+        position: absolute;
+        right:-42px;
+        top:50px;
+    }
+    .head .content .navigator li{
+        display: block;
+    }    
+    .head .content .fa-bars{
+        display: block;
+        float:right;
+        margin-right:45px;
+        line-height:80px;
+        font-size:24px;
+        cursor: pointer;
+    }
+}
 
 .wrapper {
     width: 80%;
@@ -113,18 +134,16 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 680px;
+    width: 80%;
     height: 340px;
-    margin-left: -340px;
-    margin-top: -170px;
+    transform: translate3d(-50%,-50%,0);
     cursor: pointer;
-    transform: translateZ(0);
     transition: transform 0.5s;
     /* border:1px solid pink; */
 }
 
 #about .introduce:hover {
-    transform: translateZ(50px);
+    transform: translate3d(-50%,-50%,50px);
     transition: transform 0.5s;
     box-shadow: 0px 5px 50px rgba(222,177,188, 0.3),
         5px 0px 50px rgba(222,177,188, 0.3),

@@ -1,3 +1,4 @@
+var times = 0;
 var input = $(".inputstyle");
 $.each(input, function (i) {
     var text = "";
@@ -131,10 +132,18 @@ $(".btn").on("click", function () {
     return true;
 });
 
-$(".navigator > a").on("click",function(){
-    console.log(this);
-    $.each($(".navigator > a"),function(j){
-        $(this).removeClass("back");
-    });
-    $(this).addClass("back");
+$(".navigator  a").on("click",function(e){
+    e.preventDefault();
+    $('.active').removeClass("active");
+    $(this).addClass("active");
+});
+$('.fa-bars').on('click',function() {
+    if(times%2 === 0){
+        $('.head').css({height:'225px'});
+        $('.navigator').css({display:'block'});
+    }else {
+        $('.head').css({height:'80px'});
+        $('.navigator').css({display:'none'});
+    }
+    times ++;
 });
