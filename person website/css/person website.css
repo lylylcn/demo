@@ -9,7 +9,8 @@
 body{
     min-width:680px;
 }
-.opus1 li{
+.opus1 li,
+.app ul li{
     float:left;
 }
 .gray{
@@ -44,6 +45,8 @@ body {
     margin: 0 auto;
     /* border:1px solid pink; */
 }
+
+
 .head .content::after{
     display: inline-block;
     content: "";
@@ -87,16 +90,19 @@ body {
 }
 
 @media screen and (max-width:760px){
-    /* .head{
+    .active-head{
         height:225px;
-    } */
+    }
     .head .content .navigator{
-        display: none;
+        /* display: none; */
         position: absolute;
         right:-42px;
-        top:50px;
+        top:35px;
     }
     .head .content .navigator li{
+        display: none;
+    }
+    .head .content .navigator .active-li{
         display: block;
     }    
     .head .content .fa-bars{
@@ -177,21 +183,21 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 680px;
+    width: 80%;
     height: 340px;
-    margin-left: -340px;
-    margin-top: -120px;
+    transform: translate3d(-50%,-50%,0);
     cursor: pointer;
     /* border: 1px solid pink; */
 }
 
+#portgolio .opus .opus1{
+    display: flex;
+    justify-content: space-between;         
+}
 #portgolio .opus .opus1 li {
-    list-style: none;
-    float: left;
-    width: 160px;
-    height: 160px;
+    width: 30%;
     border-radius: 50%;
-    margin: 95px 32px;
+    margin: 95px 0px;
     border: 1px solid pink;
     overflow: hidden;
     transform: translateZ(0px);
@@ -334,6 +340,10 @@ body {
     margin-top:-100px;
     justify-content: center;
     align-items: center;
+}
+.bottom .app ul {
+    display: flex;
+    justify-content: space-between;
 }
 .bottom .app a{
     display: inline-block;
