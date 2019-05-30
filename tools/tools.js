@@ -311,3 +311,22 @@ function throttle(func, wait) {
         }
     }
 }
+
+//兼容requestAnimationFrame  
+window.requestAnimationFrame = (function(){
+    return window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            function(callback) {
+                window.setTimeout(callback,1000/60);
+            };
+}());
+//兼容取消requestAnimationFrame  
+window.cancelAnimationFrame = (function(){
+    return window.CancelAnimationFrame ||
+            window.webkitCancelAnimationFrame ||
+            window.mozCancelAnimationFrame ||
+            function(id) {
+                window.clearTimeout(id);
+            };
+}());
