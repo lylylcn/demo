@@ -1,0 +1,114 @@
+@import './base.less';
+.buy_wrap{
+    display: none;
+    position:fixed;
+    top: 40px;
+    bottom: 0;
+    left:0;
+    right:0;
+    z-index: 999;
+    .buy_gray{
+        position: absolute;
+        top: 0px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0,0,0,0.6);
+    }
+    .buy_content{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: @white;
+        .buy_content_item{
+
+            border-bottom: 1px solid @gray-6;
+            padding: 0 10px;
+            .buy_left{
+                position: absolute;
+                padding:10px 10px 10px 0;
+            }
+        }
+        .buy_price{
+            position: relative;
+            .buy_price_title{
+                // position: absolute;
+                
+            }
+            .buy_price_wrap{
+                padding: 10px 0;
+                margin-left: 50px;
+                .price_value{
+                    color: @red;
+                }
+                .price_quantity{
+                    font-size: 12px;
+                    color: @gray-6;
+                    margin-left: 10px;
+                }
+            }
+        }
+        .buy_spect{
+            position: relative;
+            .buy_spect_title{
+                // position:absolute;
+            }
+            .buy_spect_wrap{
+                padding: 10px 0;
+                margin-left: 50px;
+                ul{
+                    li{
+                        padding: 5px;
+                        border: 1px solid @red;
+                        margin:5px;
+                        border-radius: 4px;
+                    }
+                    .active{
+                        background: @red;
+                        color: #fff;
+                    }
+                    .buy_spect_gray{
+                        background: @gray-6;
+                        border: none;
+                    }
+                    .buy_spect_active{
+                        background: @red;
+                        color: @white;
+                    }
+
+                }
+            }
+        }
+        .buy_number{
+            position: relative;
+            .buy_number_wrap{
+                padding: 10px 0;
+                margin-left: 50px;
+                ul{
+                    width: 100px;
+                    margin-left: auto;
+                    li{
+                        width: 30px;
+                        height: 30px;
+                        background: @gray-e0;
+                        text-align: center;
+                        line-height: 30px;
+                    }
+                    .buy_number_value{
+                        background: @white;
+                    }
+                }
+            }
+        }
+        .buy_ok{
+            width: 100%;
+            background: @red;
+            text-align: center;
+            padding: 10px 0;
+            a{
+                color: @white;
+                text-decoration:none;
+            }
+        }
+    }
+}

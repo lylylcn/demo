@@ -1,0 +1,60 @@
+{
+    "datalist":[
+        { 
+            "ordernum": "234345353",
+            "name": "李易峰",
+            "spect":"有范的" ,
+            "price": "99.9",
+            "number": "1",
+            "amount": "99.9",
+            "imgurl": "/src/img/2.jpg",
+            "adderss": {
+                "name":"关艳",
+                "mobile": "123456789",
+                "orderAdderss": "学府路52号"
+            }
+        },
+        { 
+            "ordernum": "23543657",
+            "name": "邓哥",
+            "spect":"白胖的" ,
+            "price": "111",
+            "number": "2",
+            "amount": "222",
+            "imgurl": "/src/img/dg.jpg",
+            "adderss": {
+                "name":"邓嫂1号",
+                "mobile": "123456789",
+                "orderAdderss": "学府路56号608"
+            }
+        },
+        { 
+            "ordernum": "2436354",
+            "name": "成哥",
+            "spect":"帅的" ,
+            "price": "66",
+            "number": "2",
+            "amount": "132",
+            "imgurl": "/src/img/jc.jpg",
+            "adderss": {
+                "name":"成嫂",
+                "mobile": "123456789",
+                "orderAdderss": "学府路57号"
+            }
+        },
+        { 
+            "ordernum": "2436354",
+            "name": "思彤",
+            "spect":"有块的" ,
+            "price": "66",
+            "number": "2",
+            "amount": "132",
+            "imgurl": "/src/img/cst.jpg",
+            "adderss": {
+                "name":"大众",
+                "mobile": "110",
+                "orderAdderss": "学府路58号"
+            }
+        }
+    ]
+}

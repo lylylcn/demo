@@ -1,0 +1,24 @@
+{   
+    "adderss": [
+        {
+            "name": "darling1",
+            "mobile": "15512345678",
+            "orderAdderss":"黑龙江省 哈尔滨市 南岗区 学府路52号"
+        },
+        {
+            "name": "darling",
+            "mobile": "15516866666",
+            "orderAdderss":"山东省 日照市 xx小区"
+        },
+        {
+            "name": "darling3",
+            "mobile": "15512345678",
+            "orderAdderss":"黑龙江省 哈尔滨市 南岗区 学府路52号"
+        },
+        {
+            "name": "darling",
+            "mobile": "15512345678",
+            "orderAdderss":"黑龙江省 哈尔滨市 南岗区 学府路52号"
+        }
+    ]
+ }

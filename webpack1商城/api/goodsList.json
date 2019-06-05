@@ -1,0 +1,189 @@
+{
+    "list":[
+        {   
+            "id": "1",
+            "name": "小白",
+            "imgurl": [ "http://localhost:8080/src/images/1.jpg", "http://localhost:8080/src/images/1.jpg", "http://localhost:8080/src/images/1.jpg", "http://localhost:8080/src/images/1.jpg", "http://localhost:8080/src/images/1.jpg"],
+            "spectList":[
+                {
+                    "nid": "商品库存id",
+                    "spect":"商品规格1" ,
+                    "price": "2",
+                    "quantity": "3"
+                }
+            ]
+
+        },
+        {
+            "id": "2",
+            "name": "大白",
+            "imgurl": ["http://localhost:8080/src/images/2.jpg","http://localhost:8080/src/images/2.jpg","http://localhost:8080/src/images/2.jpg","http://localhost:8080/src/images/2.jpg","http://localhost:8080/src/images/2.jpg"],
+            "spectList":[
+                {
+                    "nid": "商品库存id1",
+                    "spect":"500L" ,
+                    "price": "1.3",
+                    "quantity": "30"
+                },
+                {
+                    "nid": "商品库存id2",
+                    "spect":"商品规格2" ,
+                    "price": "1",
+                    "quantity": "1"
+                },
+                {
+                    "nid": "商品库存id2",
+                    "spect":"商品规格3" ,
+                    "price": "2",
+                    "quantity": "2"
+                },
+                {
+                    "nid": "商品库存id2",
+                    "spect":"商品规格4" ,
+                    "price": "3",
+                    "quantity": "0"
+                },
+                {
+                    "nid": "商品库存id2",
+                    "spect":"商品规格5" ,
+                    "price": "58",
+                    "quantity": "4"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "name": "白宇",
+            "imgurl": ["http://localhost:8080/src/images/3.jpg","http://localhost:8080/src/images/3.jpg","http://localhost:8080/src/images/3.jpg","http://localhost:8080/src/images/3.jpg","http://localhost:8080/src/images/3.jpg"],
+            "spectList":[
+                {
+                    "nid": "商品库存id1",
+                    "spect":"商品规格1" ,
+                    "price": "23",
+                    "quantity": "库6存"
+                },
+                {
+                    "nid": "商品库存id2",
+                    "spect":"商品规格2" ,
+                    "price": "43",
+                    "quantity": "7"
+                }
+            ]
+        },
+        {   
+            "id": "4",
+            "name": "商品名称4",
+            "imgurl": ["http://localhost:8080/src/images/4.jpg","http://localhost:8080/src/images/4.jpg","http://localhost:8080/src/images/4.jpg","http://localhost:8080/src/images/4.jpg","http://localhost:8080/src/images/4.jpg"],
+            "spectList":[
+                {
+                    "nid": "商品库存id",
+                    "spect":"商品规格1" ,
+                    "price": "45",
+                    "quantity": "4"
+                },
+                {
+                    "nid": "商品库存id",
+                    "spect":"商品规格2" ,
+                    "price": "546",
+                    "quantity": "5"
+                }
+            ]
+
+        },
+        {
+            "id": "5",
+            "name": "白叔",
+            "imgurl": ["http://localhost:8080/src/images/5.jpg","http://localhost:8080/src/images/5.jpg","http://localhost:8080/src/images/5.jpg","http://localhost:8080/src/images/5.jpg","http://localhost:8080/src/images/5.jpg"],
+            "spectList":[
+                {
+                    "nid": "商品库存id1",
+                    "spect":"商品规格1" ,
+                    "price": "123",
+                    "quantity": "0"
+                },
+                {
+                    "nid": "商品库存id2",
+                    "spect":"商品规格2" ,
+                    "price": "123",
+                    "quantity": "-2"
+                }
+            ]
+        },
+        {
+            "id": "6",
+            "name": "boss白",
+            "imgurl": ["http://localhost:8080/src/images/6.jpg","http://localhost:8080/src/images/6.jpg","http://localhost:8080/src/images/6.jpg","http://localhost:8080/src/images/6.jpg"],
+            "spectList":[
+                {
+                    "nid": "商品库存id1",
+                    "spect":"商品规格1" ,
+                    "price": "33",
+                    "quantity": "8"
+                },
+                {
+                    "nid": "商品库存id2",
+                    "spect":"商品规格2" ,
+                    "price": "34",
+                    "quantity": "7"
+                }
+            ]
+        },{   
+            "id": "7",
+            "name": "老白",
+            "imgurl": ["http://localhost:8080/src/images/7.jpg","http://localhost:8080/src/images/6.jpg","http://localhost:8080/src/images/6.jpg","http://localhost:8080/src/images/6.jpg","http://localhost:8080/src/images/6.jpg"],
+            "spectList":[
+                {
+                    "nid": "商品库存id",
+                    "spect":"商品规格1" ,
+                    "price": "435",
+                    "quantity": "5"
+                },
+                {
+                    "nid": "商品库存id",
+                    "spect":"商品规格2" ,
+                    "price": "234",
+                    "quantity": "6"
+                }
+            ]
+
+        },
+        {
+            "id": "8",
+            "name": "白宇",
+            "imgurl": ["http://localhost:8080/src/images/8.jpg","http://localhost:8080/src/images/8.jpg","http://localhost:8080/src/images/8.jpg","http://localhost:8080/src/images/8.jpg","http://localhost:8080/src/images/8.jpg"],
+            "spectList":[
+                {
+                    "nid": "商品库存id1",
+                    "spect":"商品规格1" ,
+                    "price": "2",
+                    "quantity": "7"
+                },
+                {
+                    "nid": "商品库存id2",
+                    "spect":"商品规格2" ,
+                    "price": "33",
+                    "quantity": "9"
+                }
+            ]
+        },
+        {
+            "id": "9",
+            "name": "白宇",
+            "imgurl": ["http://localhost:8080/src/images/1.jpg","http://localhost:8080/src/images/1.jpg","http://localhost:8080/src/images/1.jpg","http://localhost:8080/src/images/1.jpg"],
+            "spectList":[
+                {
+                    "nid": "商品库存id1",
+                    "spect":"商品规格1" ,
+                    "price": "44",
+                    "quantity": "10"
+                },
+                {
+                    "nid": "商品库存id2",
+                    "spect":"商品规格2" ,
+                    "price": "22",
+                    "quantity": "6"
+                }
+            ]
+        }
+    ]
+}
