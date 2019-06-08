@@ -330,3 +330,81 @@ window.cancelAnimationFrame = (function(){
                 window.clearTimeout(id);
             };
 }());
+// 封装promise
+function myPromise(fn) {
+    if(typeof fn !== 'function') {
+        throw Error(`TypeError: $(fn) is not a function`);
+    }
+    var that = this;
+    this.status = 'pending';
+    this.data = null;
+    this.resolvedArr = [];
+    this.rejectedArr = [];
+    function resolved(data) {
+        setTimeout(function() {
+            if(that.status === 'pending') {
+                that.status = 'resolved';
+                that.data = data;
+                that.resolvedArr.forEach(fn => fn());
+            }
+        },0)
+    }
+    function rejected(data) {
+        setTimeout(function() {
+            if(that.status === 'pending') {
+                that.status = 'rejected';
+                that.data = err;
+                that.rejectedArr.forEach(fn => fn());
+            }
+        }, 0)
+    }
+    fn(resolved, rejected);
+}
+myPromise.prototype.then = function (onResolved, onRejected) {
+    var that = this;
+    if(this.status === 'resolved') {
+        return new myPromise((resolved, rejected) => {
+            var res = onResolved(that.data);
+            if(res instanceof myPromise) {
+                res.then(resolved,rejected);
+            }else {
+                resolved(res);
+            }
+            
+        })
+    }
+    if(this.status === 'rejected') {
+        return new myPromise((resolved, rejected) => {
+            var res = onRejected(that.data);
+            if(res instanceof myPromise) {
+                res.then(resolved,rejected);
+            }else {
+                resolved(res);
+            }
+        })
+    }
+    if(this.status === 'pending') {
+        return new myPromise(function(resolved, rejected) {
+            that.resolvedArr.push((function(onResolved) {
+                return function() {
+                    var res = onResolved(that.data);
+                    if(res instanceof myPromise) {
+                        res.then(resolved,rejected);
+                    } else {
+                        resolved(res);
+                    }
+                }
+            })(onResolved))
+            that.rejectedArr.push((function(onRejected) {
+                return function() {
+                    var res = onResolved(that.data);
+                    if(res instanceof myPromise) {
+                        res.then(resolved,rejected);
+                    } else {
+                        resolved(res);
+                    }
+                }
+            })(onRejected))
+        })
+    }
+}
