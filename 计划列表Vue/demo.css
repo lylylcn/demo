@@ -1,0 +1,86 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+body{
+    width: 100%;
+    background: #dedede
+}
+.page-top{
+    width:100%;
+    height:50px;
+    background: red;
+}
+.page-top .page-content{
+    width: 600px;
+    margin:0 auto;
+    color:#fff;
+    line-height: 50px;
+}
+.main{
+    width:600px;
+    margin:0 auto;
+}
+.main .big-title{
+    height:50px;
+    line-height: 50px;
+}
+.main .task-input{
+    width: 100%;
+    padding: 2px 10px;
+    height:35px;
+    box-sizing: border-box;
+}
+.main .task-count{
+    width:100%;
+    height:40px;
+    font-size: 14px;
+    overflow: hidden;
+}
+.main .task-count li{
+    display: inline-block;
+    color: red;
+    line-height: 40px;
+}
+.main .task-count li:nth-of-type(1){
+    margin-left:10px;
+}
+.main .task-count li.action{
+    float: right;
+}
+.main .task-count li a{
+    color: #333;
+    text-decoration: none;
+    margin-left:20px;
+}
+.tasks{
+    font-size: 14px;
+}
+.tasks .no-task-tip,
+.view{
+    display: inline-block;
+    width: 100%;
+    height:35px;
+    padding-left:10px;
+    margin-top:5px;
+    color:#3e3e3e;
+    line-height: 35px;
+    background: #fff;
+}
+.view {
+    display: flex;
+}
+.view .toggle{
+    flex-grow:1;
+}
+.view input{
+    flex-grow:8;
+    outline:none;
+    border:none;
+}
+.view .destroy{
+    flex-grow:1;
+}
+
+

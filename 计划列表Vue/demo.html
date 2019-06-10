@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./demo.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div class="page-top">
+        <div class="page-content">
+            <h2>计划列表</h2>
+        </div>
+    </div>
+    <div class="main">
+        <h3 class="big-title">添加任务</h3>
+        <input type="text" class="task-input" 
+        v-model="inputValue" v-on:keyup.enter="addTodo">
+        <ul class="task-count">
+            <li>0个任务未完成</li>
+            <li class="action">
+                <a href="">所有任务</a>
+                <a href="">未完成任务</a>
+                <a href="">完成任务</a>
+            </li>
+        </ul>
+        <h3 class="big-title">任务列表</h3>
+        <div class="tasks">
+            <span class="no-task-tip">未添加任何项目</span>
+            <ul class="todo-task">
+                <li class="list" v-for="item in list" v-bind:class="{completed:item.checked,editing:editingtodo === value}">
+                    <div class="view">
+                        <input type="checkbox" class="toggle" v-model="item.checked">
+                        <input type="text" v-model="item.value" v-on:click="editTodo(item)">
+                        <button class="destroy" v-on:click="deleteTodo(item)"></button>
+                    </div>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="./demo.js"></script>
+</body>
+</html>
