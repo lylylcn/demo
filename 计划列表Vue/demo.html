@@ -30,9 +30,9 @@
         <div class="tasks">
             <span class="no-task-tip">未添加任何项目</span>
             <ul class="todo-task">
-                <li class="list" v-for="item in list" v-bind:class="{completed:item.checked,editing:editingtodo === value}">
+                <li class="list" v-for="item in list" v-bind:class="{completed:item.checked,editing:editingtodo === item}">
                     <div class="view">
-                        <input type="checkbox" class="toggle" v-model="item.checked">
+                        <input type="checkbox" class="toggle" v-model="item.checked" v-focus="editingtodo === item">
                         <input type="text" v-model="item.value" v-on:click="editTodo(item)">
                         <button class="destroy" v-on:click="deleteTodo(item)"></button>
                     </div>

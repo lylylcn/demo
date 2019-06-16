@@ -12,7 +12,8 @@ var vm = new Vue({
     el: ".main",
     data : {
         list: list,
-        inputValue: ""
+        inputValue: "",
+        editingtodo : ""
     },
     methods: {
         addTodo(){
@@ -21,14 +22,20 @@ var vm = new Vue({
                 checked:false
             });
             this.inputValue = "";
-            this.editingtodo = "";
         },
         deleteTodo(todo) {
             var index = this.list.indexOf(todo);
             this.list.splice(index,1);
         },
         editTodo(todo) {
-            this.editingtodo = this.inputValue;
+            this.editingtodo = todo;
         }
     },
+    drectives:{
+        focus: {
+            updata(el,binding) {
+                console.log(111);
+            }
+        }
+    }
 });
