@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .left {
+            width: 200px;
+            height: 500px;
+            float: left;
+            background: #999;
+        }
+        .main {
+            height: 800px;
+            background: #aaa;
+            overflow: hidden; /*不加的话当height>left.height时left就会浮在main上面，设置该属性之后，main就会触发bfc，并且bfs不会和float重叠*/
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="left"></div>
+    <div class="main">
+        这是内容部分
+    </div>
+</body>
+</html>

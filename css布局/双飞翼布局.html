@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .main,
+        .left,
+        .right{
+            float:left;
+            height:300px;
+        }
+        .main{
+            width:100%;
+            background: yellow;
+        }
+        .inner-main{
+            margin-left:200px;
+            margin-right:300px;
+        }
+        .left{
+            width: 200px;
+            margin-left: -100%;
+            background: red;
+        }
+        .right{
+            width: 300px;
+            margin-left: -300px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="inner-main">
+            left,right,main均设置浮动
+            main设置width:100%,inner-main设置margin-left和margin-right设置为left，right的宽度
+            left设置margin-left:-100%拉回左上方，margin-right:-right.width拉回右上边
+        </div>
+    </div>
+    <div class="left"></div>
+    <div class="right"></div>
+</body>
+</html>
