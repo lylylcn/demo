@@ -260,14 +260,16 @@ function ajax(method, url, callback, data, flag) {
     }
 }
 
+
+//document.onclick = debounce(function(e){console.log(e);},1000);
 //函数防抖  func执行触发函数  timer 等待时间  flag true为先执行后等 false 先等后执行
 function debounce(func, time, flag) {
     var timer = null; //this指向window
     var debounced = function () {
-        var that = this; //指向出发事件的dom元素
-        var argu = arguments[0];
-        clearTimeout(timer);
-        if (flag) {
+        var that = this;         //指向出发事件的dom元素
+        var argu = arguments[0]; // 事件event
+        clearTimeout(timer);     
+        if (flag) {              
             if (!timer) func.call(that, argu);
             timer = setTimeout(function () {
                 timer = null;
