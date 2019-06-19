@@ -1,3 +1,25 @@
+//深度克隆
+function deepClone(target, origin) {
+    var target1 = (origin instanceof Array) ? [] : {}; 
+    var target = target || target1; 
+    var toStr = Object.prototype.toString,
+        isArray = "[object Array]";
+    for (var key in origin) {
+        if (origin.hasOwnProperty(key)) {
+            if (typeof origin[key] === 'object') {
+                if (toStr.call(origin[key]) === isArray) {
+                    target[key] = [];
+                } else {
+                    target[key] = {};
+                }
+                deepClone(target[key], origin[key]);
+            } else {
+                target[key] = origin[key];
+            }
+        }
+    }
+    return target;
+}
 //圣杯模式继承
 function inherit(Target, Origin) {
     function F() {};
