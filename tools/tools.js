@@ -432,3 +432,13 @@ myPromise.prototype.then = function (onResolved, onRejected) {
         })
     }
 }
+//用apply封装bind
+Function.prototype.myBind = function (context) {
+    var _this = this,
+        arg = Array.prototype.slice.call(arguments, 1);
+    return function () {
+        var nowarg = Array.prototype.slice.call(arguments);
+        console.log(arg.concat(nowarg));
+        return _this.apply(context, arg.concat(nowarg));
+    }
+}
