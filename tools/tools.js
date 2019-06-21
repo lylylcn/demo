@@ -442,3 +442,32 @@ Function.prototype.myBind = function (context) {
         return _this.apply(context, arg.concat(nowarg));
     }
 }
+//全排列
+function fullPermutation(arr) {
+    var flag = [];
+    var answer = [];
+    var len = arr.length,
+        ans = 0,
+        answerNow = [];
+    answer[0] = [];
+    (function(item) {
+        item = item || 0;
+        if(item == len) {
+            Object.assign(answer[ans], answerNow);
+            ans++  ;
+            answer[ans] = [];
+            return ;
+        }
+        for(var i=0; i<len; i++) {   
+            if(!flag[i]) {                    
+                answerNow[item] = arr[i];                  
+                flag[i] = true;                     
+                arguments.callee(item + 1);                     
+                flag[i] = false;
+            }
+        }
+        return ;
+    }())    
+    answer.pop();
+    return answer;  
+}
