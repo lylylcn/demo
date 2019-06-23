@@ -475,3 +475,16 @@ function fullPermutation(arr) {
     answer.pop();
     return answer;  
 }
+//冒泡排序
+function maopao(arr) {
+    var len = arr.length;
+    for(var i=0; i<len; i++) {
+        for(var j=i+1;j<len; j++) {
+            if(arr[i]>arr[j]) {
+                [arr[i],arr[j]] = [arr[j],arr[i]];
+            }
+        }
+    }
+    return arr;
+}
+
