@@ -436,11 +436,15 @@ myPromise.prototype.then = function (onResolved, onRejected) {
 Function.prototype.myBind = function (context) {
     var _this = this,
         arg = Array.prototype.slice.call(arguments, 1);
-    return function () {
+    var fn = function () {
         var nowarg = Array.prototype.slice.call(arguments);
-        console.log(arg.concat(nowarg));
         return _this.apply(context, arg.concat(nowarg));
     }
+    fn.prototype = {
+        constructor:fn,
+        __proto__:this.prototype
+    }
+    return fn;
 }
 //全排列
 function fullPermutation(arr) {
