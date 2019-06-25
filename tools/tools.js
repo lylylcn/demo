@@ -1,3 +1,25 @@
+//深度克隆
+function deepClone(target, origin) {
+    var target1 = (origin instanceof Array) ? [] : {}; 
+    var target = target || target1; 
+    var toStr = Object.prototype.toString,
+        isArray = "[object Array]";
+    for (var key in origin) {
+        if (origin.hasOwnProperty(key)) {
+            if (typeof origin[key] === 'object') {
+                if (toStr.call(origin[key]) === isArray) {
+                    target[key] = [];
+                } else {
+                    target[key] = {};
+                }
+                deepClone(target[key], origin[key]);
+            } else {
+                target[key] = origin[key];
+            }
+        }
+    }
+    return target;
+}
 //圣杯模式继承
 function inherit(Target, Origin) {
     function F() {};
@@ -260,14 +282,16 @@ function ajax(method, url, callback, data, flag) {
     }
 }
 
+
+//document.onclick = debounce(function(e){console.log(e);},1000);
 //函数防抖  func执行触发函数  timer 等待时间  flag true为先执行后等 false 先等后执行
 function debounce(func, time, flag) {
     var timer = null; //this指向window
     var debounced = function () {
-        var that = this; //指向出发事件的dom元素
-        var argu = arguments[0];
-        clearTimeout(timer);
-        if (flag) {
+        var that = this;         //指向出发事件的dom元素
+        var argu = arguments[0]; // 事件event
+        clearTimeout(timer);     
+        if (flag) {              
             if (!timer) func.call(that, argu);
             timer = setTimeout(function () {
                 timer = null;
@@ -408,3 +432,59 @@ myPromise.prototype.then = function (onResolved, onRejected) {
         })
     }
 }
+//用apply封装bind
+Function.prototype.myBind = function (context) {
+    var _this = this,
+        arg = Array.prototype.slice.call(arguments, 1);
+    var fn = function () {
+        var nowarg = Array.prototype.slice.call(arguments);
+        return _this.apply(context, arg.concat(nowarg));
+    }
+    fn.prototype = {
+        constructor:fn,
+        __proto__:this.prototype
+    }
+    return fn;
+}
+//全排列
+function fullPermutation(arr) {
+    var flag = [];
+    var answer = [];
+    var len = arr.length,
+        ans = 0,
+        answerNow = [];
+    answer[0] = [];
+    (function(item) {
+        item = item || 0;
+        if(item == len) {
+            Object.assign(answer[ans], answerNow);
+            ans++  ;
+            answer[ans] = [];
+            return ;
+        }
+        for(var i=0; i<len; i++) {   
+            if(!flag[i]) {                    
+                answerNow[item] = arr[i];                  
+                flag[i] = true;                     
+                arguments.callee(item + 1);                     
+                flag[i] = false;
+            }
+        }
+        return ;
+    }())    
+    answer.pop();
+    return answer;  
+}
+//冒泡排序
+function maopao(arr) {
+    var len = arr.length;
+    for(var i=0; i<len; i++) {
+        for(var j=i+1;j<len; j++) {
+            if(arr[i]>arr[j]) {
+                [arr[i],arr[j]] = [arr[j],arr[i]];
+            }
+        }
+    }
+    return arr;
+}
+
