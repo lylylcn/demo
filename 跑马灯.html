@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="play" @click="play">
+        <input type="button" value="pause" @click="pause">
+        <h4>{{ msg }}</h4>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "白宇白宇白宇…………boss白boss白boss白爱你爱你",
+                timer: null
+            },
+            methods: {
+                play() {
+                    if(!this.timer) {
+                        this.timer = setInterval(() => {
+                            var msg = this.msg;
+                            var start = msg.substring(0,1);
+                            var end = msg.substring(1);
+                            this.msg = end + start;
+                        },300);
+                    }
+                },
+                pause: function() {
+                    clearInterval(thhis.timer);
+                    this.timer = null;
+                }
+            }
+            
+        })
+    
+    </script>
+</body>
+</html>
