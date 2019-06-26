@@ -488,3 +488,22 @@ function maopao(arr) {
     return arr;
 }
 
+//Promise解决Ajax异步
+function ajax(method, url, data){
+    var xhr = new XMLHttpRequest();
+    return new Promise(function(resolve, reject){
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState == 4){
+                if(xhr.status == 200 || xhr.status == 304){
+                    resolve(xhr.responseText);
+                }else {
+                    reject(xhr.status);
+                }
+            }
+        }
+    });
+    xhr.open(method, url);
+    xhr.send(data);
+}
+
+
