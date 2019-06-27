@@ -505,7 +505,7 @@ function ajax(method, url, data){
     xhr.open(method, url);
     xhr.send(data);
 }
-
+//判断浏览器是否支持css3中的属性
 function supportCss3(style) {
     var prefix = ['webkit', 'Moz', 'ms', 'o'],
         i,
