@@ -487,4 +487,210 @@ function maopao(arr) {
     }
     return arr;
 }
+//选择排序 找到第一个元素，找到后面所有的元素中最小的交换， 一直到i = len -1
+Array.prototype.chooseSort = function () {
+    var item,
+        minn,
+        len = arr.length;
+    for(var i=0; i<len-1; i++){
+        item = i;
+        for(var j=i+1; j<len; j++){
+            if(this[item] > this[j]){
+                minn = this[j];
+                item = j;
+            }
+        }
+        [this[i], this[item]] = [this[item], this[i]];
+    }
+}
+//拆入排序
+Array.prototype.insetSort = function() {
+    var temp,
+        i, j,
+        len = this.length;
+    for(i=0; i<len; i++){
+        temp = this[i];
+        j = i;
+        while(j>0 && (temp < this[j-1])){
+            this[j] = this[j-1];
+            j--;
+        }
+        this[j] = temp;
+    }
+    return this;
+}
+//快速排序
+function qSort1(arr) {
+    var len = arr.length;
+    if(len == 0) {
+        return [];
+    }
+    var less = [],
+        greater =[],
+        pivot = arr[0];
+    
+    for(var i=1; i<len; i++) {
+        if(arr[i] < pivot) {
+            less.push(arr[i]);
+        }else {
+            greater.push(arr[i]);
+        }
+    }
+    return qSort(less).concat(pivot, qSort(greater));
+}
+//快速排序
+function qSort2(arr, low, high){
+    var i = low,
+        j = high,
+        temp = arr[i];
+    if(i >= j) {
+        return ;
+    }
+    while(i !== j) {
+        while(i < j && arr[j] >= temp){
+            j --;
+        }
+        while(i < j && arr[i] <= temp) {
+            i ++;
+        }
+        if(i < j){
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+    }
+    arr[low] = arr[i];
+    arr[i] = temp;
+    qSort(arr, low, i - 1);
+    qSort(arr, i + 1, high);
+}
+// 模拟栈
+function Node(value, next) {
+    this.value = value;
+    this.next = next;
+}
+function Stack() {
+    this.head = new Node(null,null);
+    this.pop = function() {
+        if(this.head.value == null) {
+            return false;
+        }else {
+            var temp = this.head.value;
+            this.head = this.head.next;
+            return temp;
+        }
+    }
+    this.push = function(value) {
+        var node =new Node(value, this.head);
+        this.head = node;
+    }
+    this.top = function() {
+        return this.head.value;
+    }
+}
+//模拟队列
+function Node(value, next) {
+    this.value = value;
+    this.next = next;
+}
+function Queue() {
+    var head, 
+        rear,
+        current,
+        length = 0;
+    this.pop = function() {
+        if(!length) {
+            return false;
+        }else {
+            current = head;
+            head = head.next;
+            length --;
+            return current.value;
+        }
+    }
+    this.push = function(value) {
+        var node = new Node(value,null);
+        if(!length) {
+            head = node;
+            rear = node;
+        }else {
+            current = rear ;
+            current.next = node;
+            rear = node;
+        }
+        length ++;
+    }
+    this.front = function() {
+        if(!length) {
+            return false;
+        }
+        return head.value;
+    }
+}
+//Promise解决Ajax异步
+function ajax(method, url, data){
+    var xhr = new XMLHttpRequest();
+    return new Promise(function(resolve, reject){
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState == 4){
+                if(xhr.status == 200 || xhr.status == 304){
+                    resolve(xhr.responseText);
+                }else {
+                    reject(xhr.status);
+                }
+            }
+        }
+    });
+    xhr.open(method, url);
+    xhr.send(data);
+}
+//判断浏览器是否支持css3中的属性
+function supportCss3(style) {
+    var prefix = ['webkit', 'Moz', 'ms', 'o'],
+        i,
+        humpString = [],
+        htmlStyle = document.documentElement.style,
+        _toHumb = function (string) {
+            return string.replace(/-(\w)/g, function ($0, $1) {
+                return $1.toUpperCase();
+            });
+        };
 
+    for (i in prefix)
+        humpString.push(_toHumb(prefix[i] + '-' + style));
+
+    humpString.push(_toHumb(style));
+
+    for (i in humpString)
+        if (humpString[i] in htmlStyle) return true;
+
+    return false;
+}
+
+//封装parseInt()
+function _parseInt(str, radix) {
+    let str_type = typeof str;
+    let res = 0;
+    if (str_type !== 'string' && str_type !== 'number') {
+        // 如果类型不是 string 或 number 类型返回NaN
+        return NaN
+    }
+    // 字符串处理
+    str = String(str).trim().split('.')[0]
+    let length = str.length;
+    if (!length) {
+        // 如果为空则返回 NaN
+        return NaN
+    }
+    if (!radix) {
+        // 如果 radix 为0 null undefined
+        // 则转化为 10
+        radix = 10;
+    }
+    if (typeof radix !== 'number' || radix < 2 || radix > 36) {
+        return NaN;
+    }
+    for (let i = 0; i < length; i++) {
+        let arr = str.split('').reverse().join('');
+        res += Math.floor(arr[i]) * Math.pow(radix, i);
+    }
+    return res;
+}
