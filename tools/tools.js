@@ -503,7 +503,7 @@ Array.prototype.chooseSort = function () {
         [this[i], this[item]] = [this[item], this[i]];
     }
 }
-//拆入排序
+//插入排序 把无序中的元素依次在有序的数组中找到合适的位置，并插入
 Array.prototype.insetSort = function() {
     var temp,
         i, j,
