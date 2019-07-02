@@ -20,12 +20,13 @@
                 </label>
                 <label>
                     Name:
-                    <input type="text" class="form-control" v-model='name'>
+                    <input type="text" class="form-control" v-model='name' @keyup.enter='add'>
                 </label>
                 <input type="button" value='添加' class="btn btn-primary" @click="add">
                 <label>
                     搜索关键字:
-                    <input type="text" class="form-control" v-model='keyName'>
+                    <!-- 注意：Vue中所有的指令，在调用的时候，都以v- 开头   -->
+                    <input type="text" class="form-control" v-model='keyName' id="search" v-focus>
                 </label>
             </div>
         </div>
@@ -42,9 +43,9 @@
             <tbody>
                 
                 <tr v-for="item in search(keyName)" :key='item.id'>
-                    <td>{{item.id}}</td>
+                    <td v-fontweigth='1000' v-fontsize="'24px'">{{item.id}}</td>
                     <td v-text="item.name"></td>
-                    <td>{{item.ctime}}</td>
+                    <td>{{item.ctime | dataFormat }}</td>
                     <td><a href="" @click.prevent='delect(item.id)'>删除</a></td>
                 </tr>
             </tbody>
@@ -53,6 +54,16 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
+        Vue.directive('focus', {
+            bind: function() {
+                
+            },
+            inserted: function(el) {
+                el.focus();
+            },
+            update: function() {
+            }
+        })
         var vm = new Vue({
             el: '#app',
             data: {
@@ -85,6 +96,40 @@
                         }
                     })
                     return newList;
+                }
+            },
+            filters: {
+                dataFormat: function(dataStr, pattern=''){
+                    // 根据给定的时间字符串，得到特定的时间
+                    // 过滤器调用的时候采用就近原则，如果全局和私有名字一致，采用私有
+                    console.log(dataStr);
+                    var dt = new Date(dataStr);
+
+                    var y = dt.getFullYear(),
+                        m = (dt.getMonth() + 1).toString().padStart(2,'0'),
+                        d = dt.getDate().toString().padStart(2,'0');
+                    if(pattern.toLowerCase() === 'yyyy-mm-dd'){
+                        return `${y} - ${m} - ${d}`;
+                    }else {
+                        var hh = dt.getHours().toString().padStart(2,'0'),
+                            mm = dt.getMinutes().toString().padStart(2,'0'),
+                            ss = dt.getSeconds().toString().padStart(2,'0');
+                        return `${y} - ${m} - ${d} ${hh}: ${mm}: ${ss}` ;
+                    }
+                }
+            },
+            directives: {
+                'fontweigth': {
+                    bind: function(el, binding) {
+                        console.log(el, binding);
+                        el.style.fontWeigth = binding.value;
+                    },
+                    inserted: function() {
+                        
+                    },
+                },
+                'fontsize': function (el, binding) {
+                    el.style.fontSize = parseInt(binding.value) + 'px';
                 }
             }
         })
